@@ -6,24 +6,35 @@ This Python script allows you to test your keyboard keys and play a sound when a
 
 ## 📦 Features
 
-- 🔊 Plays a custom sound (`song.mp3`) when any key is pressed.
-- 💡 Prints special message when **F11** is pressed.
-- ❌ Exit the program by pressing **'q'**.
+- 🔊 Plays a custom sound (`song.mp3`) when any key is pressed.  
+- 💡 Prints special message when **F11** is pressed.  
+- ❌ Exit the program by pressing **'q'**.  
 - Minimal, easy-to-read interface.
 
 ---
 
 ## ▶️ Requirements
 
-- Python 3.x
-- `pygame`
-- `pynput`
+- Python 3.x  
+- The following Python packages:  
 
-Install dependencies:
+  - `pygame`  
+  - `pynput`  
+
+---
+
+## 🛠️ Installation
+
+Install dependencies using `pip`:
 
 ```bash
-pip install pygame pynput
+pip install -r requirements.txt
+Or install manually:
 
+bash
+Copy
+Edit
+pip install pygame pynput
 💡 Notes
 Make sure your system supports sound playback.
 
