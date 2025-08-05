@@ -1,36 +1,41 @@
-from pynput import keyboard as kb
+from pynput import keyboard
 import pygame
-#pip install pyinstaller
-#pyinstaller --onefile name.py
+import os
+import sys
 
+# Initialize pygame mixer
 pygame.init()
 pygame.mixer.init()
-song = pygame.mixer.Sound('song.mp3')
-print('HI, WELCOME TO CHECK BUTTONS SCRIPT!')
-print('PRESS ANY BUTTON :)')
-print('PRESS "q" TO FINISH THE SCRIPT')
 
-class Button:
-    def push(button):
-        if button == kb.Key.f11:
-            print('EUREKA!!!')
-        else:
-            pygame.mixer.Sound.play(song)
+# Load song
+try:
+    song_path = os.path.join(os.path.dirname(__file__), "song.mp3")
+    song = pygame.mixer.Sound(song_path)
+except pygame.error:
+    print("⚠️ Error: 'song.mp3' not found or not playable.")
+    sys.exit(1)
 
+print("🎧 Welcome to the Button Check Script!")
+print("🔘 Press any key to play the sound.")
+print("❌ Press 'q' to quit.")
 
-    def release(button): 
-        print(button)
-        if button == kb.KeyCode.from_char('q'):
-            return False
-        if button == kb.Key.f11:
-            print('EUREKA!!!')
+def on_press(key):
+    """Handle key press event."""
+    if key == keyboard.Key.f11:
+        print("✨ EUREKA!!!")
+    else:
+        song.play()
 
-    list = kb.Listener(push,release)
-    list.start()
+def on_release(key):
+    """Handle key release event."""
+    print(f"Key released: {key}")
+    if key == keyboard.KeyCode.from_char('q'):
+        print("👋 Exiting program.")
+        return False
+    if key == keyboard.Key.f11:
+        print("✨ EUREKA!!!")
 
-    while list.is_alive():
-        pass
-            
-
-if __name__ == '__main__':
-    Button()
+# Start listener
+if __name__ == "__main__":
+    with keyboard.Listener(on_press=on_press, on_release=on_release) as listener:
+        listener.join()
