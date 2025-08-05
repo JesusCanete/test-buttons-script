@@ -29,9 +29,11 @@ Install dependencies using `pip`:
 
 ```bash
 pip install -r requirements.txt
+
 Or install manually:
 
 pip install pygame pynput
+
 💡 Notes
 Make sure your system supports sound playback.
 
@@ -42,4 +44,4 @@ GitHub: JesusCanete
 
 Email: jesus.canete971202@gmail.com
 
-This project is part of my journey to become a professional remote Junior Web Developer. Built with dedication and a strong desire to learn and grow.
+🔥 This project is part of my journey to become a professional remote Junior Web Developer. Built with dedication and a strong desire to learn and grow.
