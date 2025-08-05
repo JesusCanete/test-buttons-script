@@ -31,9 +31,6 @@ Install dependencies using `pip`:
 pip install -r requirements.txt
 Or install manually:
 
-bash
-Copy
-Edit
 pip install pygame pynput
 💡 Notes
 Make sure your system supports sound playback.
